@@ -1,10 +1,11 @@
 import psycopg2
 import psycopg2.extras
 import json
+import os
 
 # TODO hostname
 conn = psycopg2.connect(
-    "host=localhost dbname=matching user=postgres password=pass",
+    os.getenv("POSTGRES_URL"),
     cursor_factory=psycopg2.extras.RealDictCursor,
 )
 
